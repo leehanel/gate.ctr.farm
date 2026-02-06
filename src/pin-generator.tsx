@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "./language-switch";
 
-const CLOUDFLARE_API = "https://pin-api.your-name.workers.dev"; // Replace with your deployed URL
+const CLOUDFLARE_API = "https://pin-api.ctr-gate.workers.dev"; // Replace with your deployed URL
 
 function GuestPinGenerator() {
   const { t } = useTranslation();

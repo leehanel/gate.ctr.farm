@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const CLOUDFLARE_API = 'https://pin-api.your-name.workers.dev';
+export const CLOUDFLARE_API = 'https://pin-api.ctr-gate.workers.dev';
 
 export function useBarrier() {
   const [pin, setPin] = useState<string[]>(['', '', '', '']);
