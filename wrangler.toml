@@ -1,0 +1,5 @@
+name = "gate-ctr-farm"
+pages_build_output_dir = "docs"
+
+[build]
+command = "pip install -r requirements.txt && python build.py"

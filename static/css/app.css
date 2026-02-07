@@ -1,0 +1,7 @@
+/* ── Custom styles beyond Tailwind ── */
+
+/* Green flash when barrier opens successfully */
+.btn-opened {
+    background: #22c55e !important;
+    background-image: none !important;
+}

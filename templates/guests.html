@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Barrier Card (guest-only simplified view) -->
+<section class="bg-white rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+    <h2 class="text-2xl font-semibold mb-2 text-slate-700">
+        🔓 <span data-i18n="barrier_access">Gate Access</span>
+    </h2>
+
+    <div class="mb-4 text-sm font-semibold text-center">
+        <span id="device-status" class="text-red-500" data-i18n="device_offline">Device Offline</span>
+    </div>
+
+    <div id="pin-inputs" class="flex justify-center gap-3 mb-5"></div>
+
+    <button id="open-btn" onclick="triggerBarrier()" disabled
+            class="w-full py-3 rounded-full font-bold text-lg shadow-md transition-all duration-300 hover:shadow-lg disabled:opacity-40 bg-gradient-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500">
+        <span data-i18n="open_button">Open</span>
+    </button>
+
+    <p id="barrier-status" class="mt-3 text-sm text-center hidden"></p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/barrier.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initBarrier();
+    });
+</script>
+{% endblock %}

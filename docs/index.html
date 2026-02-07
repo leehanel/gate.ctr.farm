@@ -1,15 +1,145 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>esp32-smart-gate-system</title>
-    <script type="module" crossorigin src="/assets/index-Cwtq9p4Z.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BwLr6psZ.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <title>Crazy Train Ranch</title>
+    <script>
+        window.LOCALES = {"en": {"title": "Crazy Train Ranch", "barrier_access": "Gate Access", "open_button": "Open", "device_online": "Device Online", "device_offline": "Device Offline", "generate_pin_link": "Generate Guest PIN", "current_weather": "Current Weather", "location_name": "Crazy Train Ranch", "loading": "Loading...", "wind_label": "Wind", "humidity_label": "Humidity", "contacts_title": "Contacts & Services", "view_playground_rules": "View Playground Rules", "qrcode_alt": "QR code linking to playground rules", "back": "Back", "generate_guest_pin_title": "Generate Guest PIN", "generate_guest_pin_description": "Enter your admin PIN to generate a temporary guest code. This code will be valid for 24 hours.", "generate_button": "Generate PIN", "generating": "Generating...", "pin_generated": "Generated PIN", "copy_pin": "Copy PIN", "copy_guest_link": "Copy link to guest page", "copied": "Copied", "pin_expiration_note": "Valid for 24 hours.", "admin_pin_incomplete": "Admin PIN incomplete", "error_unknown": "Unknown error", "error_network": "Network error", "header_image_alt": "Community background", "playground_heading": "PLAYGROUND", "playground_subtitle": "Rules for Safe Play", "checking_pin": "Checking PIN...", "barrier_opened": "Barrier opened", "pin_wrong": "Wrong or expired PIN", "error_sending": "Error sending request", "playground_rules": [{"icon": "🚫", "title": "No shoes on the trampoline", "desc": "Only climb barefoot or with clean socks"}, {"icon": "🗑️", "title": "Keep it clean", "desc": "Throw trash only in the bin"}, {"icon": "🧸", "title": "Tidy up after play", "desc": "Leave the space nice for others"}, {"icon": "🌼", "title": "Respect the plants", "desc": "Don't damage flowers, leaves, or branches"}, {"icon": "🤝", "title": "Play nicely", "desc": "No pushing, no fighting — everyone is welcome"}, {"icon": "👨‍👧", "title": "Supervision is important", "desc": "Young children should be accompanied by an adult"}], "weather": {"0": "Clear sky", "1": "Mostly clear", "2": "Partly cloudy", "3": "Overcast", "45": "Fog", "48": "Fog with rime", "51": "Light drizzle", "53": "Moderate drizzle", "55": "Heavy drizzle", "61": "Light rain", "63": "Moderate rain", "65": "Heavy rain", "80": "Light showers", "81": "Moderate showers", "82": "Heavy showers", "unknown": "Unknown conditions"}}, "ro": {"title": "District", "barrier_access": "Acces barieră", "open_button": "Deschide", "device_online": "Dispozitiv online", "device_offline": "Dispozitiv offline", "generate_pin_link": "Generează PIN pentru oaspeți", "current_weather": "Vremea curentă", "location_name": "Comunitatea ta", "loading": "Se încarcă...", "wind_label": "Vânt", "humidity_label": "Umiditate", "contacts_title": "Contacte și Servicii", "view_playground_rules": "Vezi regulile locului de joacă", "qrcode_alt": "Cod QR către regulile locului de joacă", "back": "Înapoi", "generate_guest_pin_title": "Generează PIN pentru oaspeți", "generate_guest_pin_description": "Introdu PIN-ul de rezident pentru a genera un cod temporar. Acest cod va fi valabil timp de 24 de ore.", "generate_button": "Generează PIN", "generating": "Se generează...", "pin_generated": "PIN generat", "copy_pin": "Copiază PIN-ul", "copy_guest_link": "Copiază link-ul către pagina de oaspeți", "copied": "Copiat", "pin_expiration_note": "Valabil timp de 24 de ore.", "admin_pin_incomplete": "PIN-ul de rezident este incomplet", "error_unknown": "Eroare necunoscută", "error_network": "Eroare de rețea", "header_image_alt": "Imagine de fundal comunitate", "playground_heading": "LOC DE JOACĂ", "playground_subtitle": "Reguli pentru joacă în siguranță", "checking_pin": "Verificare PIN...", "barrier_opened": "Barieră deschisă", "pin_wrong": "PIN greșit sau expirat", "error_sending": "Eroare la trimiterea cererii", "playground_rules": [{"icon": "🚫", "title": "Fără încălțăminte în trambulină", "desc": "Urcă doar desculț sau cu șosete curate"}, {"icon": "🗑️", "title": "Păstrează curățenia", "desc": "Aruncă gunoiul doar la coș"}, {"icon": "🧸", "title": "Strânge jucăriile după joacă", "desc": "Lasă locul curat pentru ceilalți"}, {"icon": "🌼", "title": "Ai grijă de plante", "desc": "Nu rupe florile, frunzele sau crengile"}, {"icon": "🤝", "title": "Joacă-te frumos", "desc": "Fără împins sau ceartă — toți copiii sunt bineveniți"}, {"icon": "👨‍👧", "title": "Supravegherea e importantă", "desc": "Copiii mici trebuie însoțiți de un adult"}], "weather": {"0": "Cer senin", "1": "Mai mult senin", "2": "Parțial noros", "3": "Înnorat", "45": "Ceață", "48": "Ceață cu depunere", "51": "Burniță ușoară", "53": "Burniță moderată", "55": "Burniță densă", "61": "Ploaie slabă", "63": "Ploaie moderată", "65": "Ploaie abundentă", "80": "Averse ușoare", "81": "Averse moderate", "82": "Averse abundente", "unknown": "Condiții necunoscute"}}};
+        window.CONTACTS = [{"category": "Security", "items": [{"label": "Local Patrol", "value": "911"}]}];
+    </script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-slate-50 to-slate-200 font-sans text-gray-800">
+    <!-- Header -->
+    <header class="relative w-full h-40 bg-white shadow-2xl flex flex-col justify-center items-center rounded-b-3xl overflow-hidden">
+        <img src="/header.png" data-i18n-alt="header_image_alt" alt="Community background"
+             class="absolute w-full h-full object-cover opacity-60">
+
+        
+
+        <div class="absolute top-3 right-4 z-20">
+            <div id="lang-switcher" onclick="switchLanguage()"
+                 class="flex items-center gap-2 cursor-pointer px-3 py-1 bg-white/80 hover:bg-white rounded-full shadow text-sm font-semibold transition-all">
+                <span class="text-blue-700">EN</span>
+                <span class="opacity-70">🇬🇧</span>
+            </div>
+        </div>
+
+        <h1 class="relative z-10 text-4xl font-extrabold tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
+            data-i18n="title">Crazy Train Ranch</h1>
+    </header>
+
+    <main class="py-8 max-w-xl mx-auto space-y-8 px-2">
+        
+<!-- Barrier Card -->
+<section class="bg-white rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+    <h2 class="text-2xl font-semibold mb-2 text-slate-700">
+        🔓 <span data-i18n="barrier_access">Gate Access</span>
+    </h2>
+
+    <div class="mb-4 text-sm font-semibold text-center">
+        <span id="device-status" class="text-red-500" data-i18n="device_offline">Device Offline</span>
+    </div>
+
+    <div id="pin-inputs" class="flex justify-center gap-3 mb-5"></div>
+
+    <button id="open-btn" onclick="triggerBarrier()" disabled
+            class="w-full py-3 rounded-full font-bold text-lg shadow-md transition-all duration-300 hover:shadow-lg disabled:opacity-40 bg-gradient-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500">
+        <span data-i18n="open_button">Open</span>
+    </button>
+
+    <p id="barrier-status" class="mt-3 text-sm text-center hidden"></p>
+
+    <div class="mt-6 text-center">
+        <a href="/pin-generator" class="inline-block text-sm text-blue-600 font-medium hover:text-blue-800 transition-colors">
+            🔧 <span data-i18n="generate_pin_link">Generate Guest PIN</span> →
+        </a>
+    </div>
+</section>
+
+<!-- Weather Card -->
+<section class="relative overflow-hidden bg-gradient-to-br from-sky-100 via-white to-sky-50 rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+    <div id="weather-emoji" class="absolute right-4 top-4 text-5xl text-blue-400/20"></div>
+    <h2 class="text-2xl font-semibold mb-1 text-slate-700">
+        🌤️ <span data-i18n="current_weather">Current Weather</span>
+    </h2>
+    <div class="text-sm text-slate-600 mb-4" data-i18n="location_name">Crazy Train Ranch</div>
+
+    <div id="weather-loading" class="text-sm text-slate-500" data-i18n="loading">Loading...</div>
+    <div id="weather-data" class="hidden items-center justify-between">
+        <div class="flex flex-col gap-1">
+            <div class="text-4xl font-bold text-blue-500" id="weather-temp"></div>
+            <div class="text-md text-slate-600" id="weather-desc"></div>
+        </div>
+        <div class="text-right text-sm text-slate-500">
+            <div><span data-i18n="wind_label">Wind</span>: <span id="weather-wind"></span> mph</div>
+            <div><span data-i18n="humidity_label">Humidity</span>: <span id="weather-humidity"></span>%</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacts Card (hidden for now)
+<section class="bg-white rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+    <h2 class="text-2xl font-semibold mb-4 text-slate-700">
+        📞 <span data-i18n="contacts_title">Contacts & Services</span>
+    </h2>
+    <ul id="contacts-list" class="space-y-4 text-slate-600"></ul>
+</section>
+-->
+
+<!-- Playground Rules Link (hidden for now)
+<section class="bg-white rounded-3xl shadow-xl p-6 text-center hover:shadow-2xl transition-all duration-300">
+    <a href="/playground" class="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors">
+        🛝 <span class="underline" data-i18n="view_playground_rules">View Playground Rules</span>
+    </a>
+    <div class="mt-4">
+        <img src="/qrcode.png" data-i18n-alt="qrcode_alt" alt="QR code" class="mx-auto w-40 h-40">
+    </div>
+</section>
+-->
+
+    </main>
+
+    <script src="/static/js/i18n.js"></script>
+    
+<script src="/static/js/weather.js"></script>
+<script src="/static/js/barrier.js"></script>
+<script>
+    function renderContacts() {
+        var list = document.getElementById('contacts-list');
+        if (!list) return;
+        var contacts = window.CONTACTS || [];
+        list.innerHTML = contacts.map(function(group) {
+            return '<li>' +
+                '<div class="font-medium text-slate-700 mb-1">' + escapeHtml(group.category) + '</div>' +
+                '<ul class="ml-3 space-y-1 text-sm">' +
+                group.items.map(function(item) {
+                    return '<li class="flex justify-between">' +
+                        '<span>' + escapeHtml(item.label) + ':</span>' +
+                        '<span>' + escapeHtml(item.value) + '</span>' +
+                    '</li>';
+                }).join('') +
+                '</ul>' +
+            '</li>';
+        }).join('');
+    }
+
+    function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderContacts();
+        initBarrier();
+        initWeather();
+    });
+</script>
+
+</body>
 </html>

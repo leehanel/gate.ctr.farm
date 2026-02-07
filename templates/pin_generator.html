@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block header_left %}
+<a href="/"
+   class="absolute left-4 top-4 z-20 text-sm font-semibold text-white bg-black/30 backdrop-blur px-3 py-1 rounded-full hover:bg-black/50 transition">
+    ← <span data-i18n="back">Back</span>
+</a>
+{% endblock %}
+
+{% block content %}
+<section class="bg-white rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+    <h2 class="text-2xl font-semibold mb-2 text-slate-700">
+        🔑 <span data-i18n="generate_guest_pin_title">Generate Guest PIN</span>
+    </h2>
+    <p class="text-sm text-slate-600 mb-4" data-i18n="generate_guest_pin_description">
+        Enter your admin PIN to generate a temporary guest code. This code will be valid for 24 hours.
+    </p>
+
+    <div id="admin-pin-inputs" class="flex justify-center gap-3 mb-5"></div>
+
+    <button id="generate-btn" onclick="handleGenerate()" disabled
+            class="w-full py-3 rounded-full font-bold text-lg shadow-md bg-gradient-to-r from-emerald-500 to-lime-400 text-white hover:from-emerald-600 hover:to-lime-500 transition-all disabled:opacity-40">
+        <span data-i18n="generate_button">Generate PIN</span>
+    </button>
+
+    <div id="generated-result" class="mt-4 text-center hidden">
+        <p class="text-green-600 text-lg font-semibold">
+            <span data-i18n="pin_generated">Generated PIN</span>:
+            <span id="generated-pin" class="font-mono text-xl"></span>
+        </p>
+
+        <div class="mt-2 flex justify-center gap-3 items-center">
+            <button id="copy-pin-btn" onclick="copyPin()"
+                    class="text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1 rounded-full transition-colors">
+                📋 <span data-i18n="copy_pin">Copy PIN</span>
+            </button>
+            <span id="copy-pin-msg" class="text-green-600 text-sm font-medium hidden">
+                ✅ <span data-i18n="copied">Copied</span>
+            </span>
+        </div>
+
+        <p class="text-sm mt-2 text-slate-600" data-i18n="pin_expiration_note">Valid for 24 hours.</p>
+    </div>
+
+    <div class="mt-4 flex justify-center gap-3 items-center">
+        <button onclick="copyGuestLink()"
+                class="text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1 rounded-full transition-colors">
+            🔗 <span data-i18n="copy_guest_link">Copy link to guest page</span>
+        </button>
+        <span id="copy-link-msg" class="text-green-600 text-sm font-medium hidden">
+            ✅ <span data-i18n="copied">Copied</span>
+        </span>
+    </div>
+
+    <p id="generate-error" class="mt-4 text-center text-red-500 text-sm hidden"></p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/pin-generator.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initPinGenerator();
+    });
+</script>
+{% endblock %}

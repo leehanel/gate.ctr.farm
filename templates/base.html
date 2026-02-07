@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <title>Crazy Train Ranch</title>
+    <script>
+        window.LOCALES = {{ locales_json }};
+        window.CONTACTS = {{ contacts_json }};
+    </script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-slate-50 to-slate-200 font-sans text-gray-800">
+    <!-- Header -->
+    <header class="relative w-full h-40 bg-white shadow-2xl flex flex-col justify-center items-center rounded-b-3xl overflow-hidden">
+        <img src="/header.png" data-i18n-alt="header_image_alt" alt="Community background"
+             class="absolute w-full h-full object-cover opacity-60">
+
+        {% block header_left %}{% endblock %}
+
+        <div class="absolute top-3 right-4 z-20">
+            <div id="lang-switcher" onclick="switchLanguage()"
+                 class="flex items-center gap-2 cursor-pointer px-3 py-1 bg-white/80 hover:bg-white rounded-full shadow text-sm font-semibold transition-all">
+                <span class="text-blue-700">EN</span>
+                <span class="opacity-70">🇬🇧</span>
+            </div>
+        </div>
+
+        <h1 class="relative z-10 text-4xl font-extrabold tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
+            data-i18n="title">Crazy Train Ranch</h1>
+    </header>
+
+    <main class="py-8 max-w-xl mx-auto space-y-8 px-2">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="/static/js/i18n.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

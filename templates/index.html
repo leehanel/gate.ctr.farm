@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Barrier Card -->
+<section class="bg-white rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+    <h2 class="text-2xl font-semibold mb-2 text-slate-700">
+        🔓 <span data-i18n="barrier_access">Gate Access</span>
+    </h2>
+
+    <div class="mb-4 text-sm font-semibold text-center">
+        <span id="device-status" class="text-red-500" data-i18n="device_offline">Device Offline</span>
+    </div>
+
+    <div id="pin-inputs" class="flex justify-center gap-3 mb-5"></div>
+
+    <button id="open-btn" onclick="triggerBarrier()" disabled
+            class="w-full py-3 rounded-full font-bold text-lg shadow-md transition-all duration-300 hover:shadow-lg disabled:opacity-40 bg-gradient-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500">
+        <span data-i18n="open_button">Open</span>
+    </button>
+
+    <p id="barrier-status" class="mt-3 text-sm text-center hidden"></p>
+
+    <div class="mt-6 text-center">
+        <a href="/pin-generator" class="inline-block text-sm text-blue-600 font-medium hover:text-blue-800 transition-colors">
+            🔧 <span data-i18n="generate_pin_link">Generate Guest PIN</span> →
+        </a>
+    </div>
+</section>
+
+<!-- Weather Card -->
+<section class="relative overflow-hidden bg-gradient-to-br from-sky-100 via-white to-sky-50 rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+    <div id="weather-emoji" class="absolute right-4 top-4 text-5xl text-blue-400/20"></div>
+    <h2 class="text-2xl font-semibold mb-1 text-slate-700">
+        🌤️ <span data-i18n="current_weather">Current Weather</span>
+    </h2>
+    <div class="text-sm text-slate-600 mb-4" data-i18n="location_name">Crazy Train Ranch</div>
+
+    <div id="weather-loading" class="text-sm text-slate-500" data-i18n="loading">Loading...</div>
+    <div id="weather-data" class="hidden items-center justify-between">
+        <div class="flex flex-col gap-1">
+            <div class="text-4xl font-bold text-blue-500" id="weather-temp"></div>
+            <div class="text-md text-slate-600" id="weather-desc"></div>
+        </div>
+        <div class="text-right text-sm text-slate-500">
+            <div><span data-i18n="wind_label">Wind</span>: <span id="weather-wind"></span> mph</div>
+            <div><span data-i18n="humidity_label">Humidity</span>: <span id="weather-humidity"></span>%</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacts Card (hidden for now)
+<section class="bg-white rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+    <h2 class="text-2xl font-semibold mb-4 text-slate-700">
+        📞 <span data-i18n="contacts_title">Contacts & Services</span>
+    </h2>
+    <ul id="contacts-list" class="space-y-4 text-slate-600"></ul>
+</section>
+-->
+
+<!-- Playground Rules Link (hidden for now)
+<section class="bg-white rounded-3xl shadow-xl p-6 text-center hover:shadow-2xl transition-all duration-300">
+    <a href="/playground" class="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors">
+        🛝 <span class="underline" data-i18n="view_playground_rules">View Playground Rules</span>
+    </a>
+    <div class="mt-4">
+        <img src="/qrcode.png" data-i18n-alt="qrcode_alt" alt="QR code" class="mx-auto w-40 h-40">
+    </div>
+</section>
+-->
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/weather.js"></script>
+<script src="/static/js/barrier.js"></script>
+<script>
+    function renderContacts() {
+        var list = document.getElementById('contacts-list');
+        if (!list) return;
+        var contacts = window.CONTACTS || [];
+        list.innerHTML = contacts.map(function(group) {
+            return '<li>' +
+                '<div class="font-medium text-slate-700 mb-1">' + escapeHtml(group.category) + '</div>' +
+                '<ul class="ml-3 space-y-1 text-sm">' +
+                group.items.map(function(item) {
+                    return '<li class="flex justify-between">' +
+                        '<span>' + escapeHtml(item.label) + ':</span>' +
+                        '<span>' + escapeHtml(item.value) + '</span>' +
+                    '</li>';
+                }).join('') +
+                '</ul>' +
+            '</li>';
+        }).join('');
+    }
+
+    function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderContacts();
+        initBarrier();
+        initWeather();
+    });
+</script>
+{% endblock %}

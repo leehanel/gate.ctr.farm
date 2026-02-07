@@ -29,6 +29,10 @@
   "header_image_alt": "Community background",
   "playground_heading": "PLAYGROUND",
   "playground_subtitle": "Rules for Safe Play",
+  "checking_pin": "Checking PIN...",
+  "barrier_opened": "Barrier opened",
+  "pin_wrong": "Wrong or expired PIN",
+  "error_sending": "Error sending request",
   "playground_rules": [
     {
       "icon": "🚫",
@@ -48,7 +52,7 @@
     {
       "icon": "🌼",
       "title": "Respect the plants",
-      "desc": "Don’t damage flowers, leaves, or branches"
+      "desc": "Don't damage flowers, leaves, or branches"
     },
     {
       "icon": "🤝",

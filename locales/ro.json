@@ -29,6 +29,10 @@
   "header_image_alt": "Imagine de fundal comunitate",
   "playground_heading": "LOC DE JOACĂ",
   "playground_subtitle": "Reguli pentru joacă în siguranță",
+  "checking_pin": "Verificare PIN...",
+  "barrier_opened": "Barieră deschisă",
+  "pin_wrong": "PIN greșit sau expirat",
+  "error_sending": "Eroare la trimiterea cererii",
   "playground_rules": [
     {
       "icon": "🚫",
