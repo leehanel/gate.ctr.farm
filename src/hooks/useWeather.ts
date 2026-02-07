@@ -10,7 +10,7 @@ interface WeatherData {
   weatherCode: number | null;
 }
 
-export function useWeather(latitude = 44.615, longitude = 25.980): WeatherData {
+export function useWeather(latitude = 30.72, longitude = -97.93): WeatherData {
   const [weatherCode, setWeatherCode] = useState<number | null>(null);
   const [temperature, setTemperature] = useState<number | null>(null);
   const [wind, setWind] = useState<number | null>(null);
@@ -19,7 +19,7 @@ export function useWeather(latitude = 44.615, longitude = 25.980): WeatherData {
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=relative_humidity_2m&timezone=auto`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=relative_humidity_2m&timezone=auto&temperature_unit=fahrenheit`;
 
     fetch(url)
       .then(res => res.json())
