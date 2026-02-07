@@ -1,33 +1,6 @@
 [
   {
     "category": "Security",
-    "items": [{ "label": "Local Patrol", "value": "+40 700 000 001" }]
-  },
-  {
-    "category": "Electricity",
-    "items": [
-      { "label": "Power Company", "value": "0800 000 111" },
-      { "label": "Energy Hotline", "value": "021.9000" }
-    ]
-  },
-  {
-    "category": "Gas Supply",
-    "items": [{ "label": "Gas Company", "value": "0800 000 222" }]
-  },
-  {
-    "category": "Waste Services",
-    "items": [
-      { "label": "Vacuum Truck A", "value": "+40 700 000 002" },
-      { "label": "Vacuum Truck B", "value": "+40 700 000 003" },
-      { "label": "Municipal Service", "value": "+40 700 000 004" }
-    ]
-  },
-  {
-    "category": "Plumbers",
-    "items": [
-      { "label": "John (Local)", "value": "+40 700 000 005" },
-      { "label": "Dan Plumbing", "value": "+40 700 000 006" },
-      { "label": "George Repairs", "value": "+40 700 000 007" }
-    ]
+    "items": [{ "label": "Local Patrol", "value": "911" }]
   }
 ]
